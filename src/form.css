@@ -1,0 +1,28 @@
+.form {
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    background-color: rgb(146, 146, 165);
+}
+
+.formContent {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    padding: 3px 0;
+}
+
+.formTitle, .addBtn {
+    font-size: 1.2rem;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+
+}
+
+textarea {
+    resize: none;
+}

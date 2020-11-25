@@ -1,0 +1,20 @@
+.notes-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.saved-note {
+    background-color: rgb(146, 146, 165);
+    list-style: none;
+    width: 20vw;
+    padding: .6rem;
+    margin: 1rem;
+}
+
+.note-content {
+    text-align: start;
+    background-color: #fff;
+    opacity: 0.8;
+    overflow: hidden;
+    height: 2.5rem;
+}
