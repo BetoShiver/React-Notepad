@@ -4,7 +4,8 @@
 }
 
 .saved-note {
-    background-color: rgb(146, 146, 165);
+    background-color: #77ccc7;
+    border-radius: 6%;
     list-style: none;
     width: 20vw;
     padding: .6rem;
@@ -12,15 +13,32 @@
 }
 
 .note-content {
+    border-radius: 6%;
     text-align: start;
     background-color: #fff;
     opacity: 0.8;
     overflow: hidden;
-    height: 2.5rem;
+    height: 3.5rem;
+    margin-top: .5rem;
 }
 
 .created-date {
+    border-radius: 6%;
     font-size: 9px;
     font-weight: bold;
     color: #fff;
+}
+
+.delete-btn {
+    margin: 0 1rem;
+}
+
+/* .modal{
+    background-color: aqua;
+} */
+
+.modal-date{
+    font-size: 10px;
+    font-weight: 700;
+    color: gray;
 }

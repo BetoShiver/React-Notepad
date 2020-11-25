@@ -37,11 +37,11 @@ export default class NotesForm extends Component {
           value={this.state.noteTitle}
         />
         <TextareaAutosize
-          rowsMax={16}
+          rowsMax={36}
           rowsMin={8}
           aria-label="empty textarea"
           placeholder="Tell me about it..."
-          className="formContent"
+          className="form-content"
           name="content"
           onChange={this.updateContent}
           value={this.state.noteContent}

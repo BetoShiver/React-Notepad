@@ -29,7 +29,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>My Notes</h1>
+        <h1 className='page-title'>Write It Down</h1>
         <NotesForm onAddNote={(newNote) => this.handleAddNote(newNote)} />
         <NotesList
           notes={this.state.notes}
@@ -41,7 +41,7 @@ class App extends React.Component {
 }
 
 
-document.body.style.backgroundColor = 'lightgray';
+document.body.style.backgroundColor = "#ecddc6";
 
 
 export default App;
