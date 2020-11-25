@@ -19,12 +19,22 @@ class App extends React.Component {
     });
   }
 
+  deleteNote(arr) {
+    console.log(arr)
+    this.setState(() => {
+      return { notes: arr}
+    } )
+  }
+
   render() {
     return (
       <div className="App">
         <h1>My Notes</h1>
         <NotesForm onAddNote={(newNote) => this.handleAddNote(newNote)} />
-        <NotesList notes = {this.state.notes}/>
+        <NotesList
+          notes={this.state.notes}
+          deleteNote={(arr) => this.deleteNote(arr)}
+        vfvv/>
       </div>
     );
   }
