@@ -35,6 +35,7 @@ export default class NotesForm extends Component {
           name="title"
           placeholder="What is this about?"
           className="formTitle"
+          autoComplete ='off'
           onChange={this.updateTitle}
           value={this.state.noteTitle}
         />

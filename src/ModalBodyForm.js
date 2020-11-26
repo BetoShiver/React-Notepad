@@ -38,7 +38,8 @@ export default class ModalBodyForm extends Component {
           placeholder="Add a title?"
           className="formTitle"
           onChange={this.updateTitle}
-          value={this.state.noteTitle}
+                value={this.state.noteTitle}
+                autoComplete='off'
         />
         <TextareaAutosize
           rowsMax={36}
