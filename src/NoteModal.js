@@ -2,6 +2,7 @@ import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import React from "react";
+import ModalBodyForm from "./ModalBodyForm";
 
 //taken from bootstrap documentation
 
@@ -10,6 +11,10 @@ export default function NoteModal(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const EditNote = (obj) => {
+    setShow(false);
+    props.EditNote(obj);
+  };
 
   return (
     <>
@@ -18,27 +23,31 @@ export default function NoteModal(props) {
       </Button>
 
       <Modal
-        className="modal"
         show={show}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
         aria-labelledby="contained-modal-title-vcenter"
+        className="modal"
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title>{props.title}</Modal.Title>
+          <div>
+            <b>{props.title} </b>
+            <p className="modDate">created on {props.date}</p>
+            {props.editDate && (
+              <p className="created-date">Last Edit: {props.editDate} </p>
+            )}
+          </div>
         </Modal.Header>
         <Modal.Body>
-                  <p>{props.content}</p>
-                  <p className='modal-date'>Created at: {props.createdDate }</p>
+          <ModalBodyForm
+            title={props.title}
+            content={props.content}
+            onEditNote={(obj) => EditNote(obj)}
+            handleClose={handleClose}
+          ></ModalBodyForm>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="primary">Update</Button>
-        </Modal.Footer>
       </Modal>
     </>
   );

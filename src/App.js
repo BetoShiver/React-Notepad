@@ -20,7 +20,6 @@ class App extends React.Component {
   }
 
   deleteNote(arr) {
-    console.log(arr)
     this.setState(() => {
       return { notes: arr}
     } )

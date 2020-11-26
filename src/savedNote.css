@@ -5,15 +5,15 @@
 
 .saved-note {
     background-color: #77ccc7;
-    border-radius: 6%;
+    border-radius: 2%;
     list-style: none;
-    width: 20vw;
+    width: 28vw;
     padding: .6rem;
     margin: 1rem;
 }
 
 .note-content {
-    border-radius: 6%;
+    border-radius: 2%;
     text-align: start;
     background-color: #fff;
     opacity: 0.8;
@@ -29,16 +29,23 @@
     color: #fff;
 }
 
-.delete-btn {
-    margin: 0 1rem;
+.modDate {
+    border-radius: 6%;
+    font-size: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-/* .modal{
-    background-color: aqua;
-} */
+.delete-btn {
+    margin: .5rem 1rem;
+}
 
-.modal-date{
-    font-size: 10px;
-    font-weight: 700;
-    color: gray;
+.modal .modal-content {
+    background-color: #ecddc6;
+}
+
+@media only screen and (max-width: 600px) {
+    .saved-note {
+        width: 80%;
+    }
 }

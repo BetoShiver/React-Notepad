@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
-export default class NotesForm extends Component {
+import "./form.css";
+
+export default class ModalBodyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      noteContent: "",
-      noteTitle: "",
+        noteContent: this.props.content,
+      noteTitle: this.props.title,
     };
   }
 
@@ -21,19 +23,19 @@ export default class NotesForm extends Component {
     this.setState({ noteContent: value });
   };
 
-  handleSubmit =(e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onAddNote(this.state)
-    this.setState({ noteContent: "", noteTitle: '' });
-  }
+    this.props.onEditNote(this.state);
+    this.setState({ noteContent: "", noteTitle: "" });
+  };
 
   render() {
     return (
-      <form className="form" onSubmit={(e) => this.handleSubmit(e)}>
+      <form onSubmit={(e) => this.handleSubmit(e)}>
         <input
           type="text"
           name="title"
-          placeholder="What is this about?"
+          placeholder="Add a title?"
           className="formTitle"
           onChange={this.updateTitle}
           value={this.state.noteTitle}
@@ -42,16 +44,22 @@ export default class NotesForm extends Component {
           rowsMax={36}
           rowsMin={8}
           aria-label="empty textarea"
-          placeholder="Tell me about it..."
           className="form-content"
           name="content"
           onChange={this.updateContent}
           value={this.state.noteContent}
           required
         />
-        <Button type="submit" className="addBtn">
-          {" "}
-          Add Note
+        <hr />
+        <Button
+          className="modal-btn"
+          variant="secondary"
+          onClick={(e) => this.props.handleClose(e)}
+        >
+          Cancel
+        </Button>
+        <Button className="modal-btn" variant="primary" type="submit">
+          Edit Note
         </Button>
       </form>
     );
