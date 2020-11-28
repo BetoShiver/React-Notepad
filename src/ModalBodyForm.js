@@ -8,8 +8,8 @@ export default class ModalBodyForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        noteContent: this.props.content,
-      noteTitle: this.props.title,
+      noteContent: this.props.noteContent,
+      noteTitle: this.props.noteTitle,
     };
   }
 
@@ -59,7 +59,7 @@ export default class ModalBodyForm extends Component {
         >
           Cancel
         </Button>
-        <Button className="modal-btn" variant="primary" type="submit">
+        <Button className="modal-btn" variant="info" type="submit">
           Edit Note
         </Button>
       </form>

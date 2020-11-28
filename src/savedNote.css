@@ -4,7 +4,7 @@
 }
 
 .saved-note {
-    background-color: #77ccc7;
+    background-color: #e0d147;
     border-radius: 2%;
     list-style: none;
     width: 28vw;
@@ -16,7 +16,7 @@
     border-radius: 2%;
     text-align: start;
     background-color: #fff;
-    opacity: 0.8;
+    opacity: 0.7;
     overflow: hidden;
     height: 3.5rem;
     margin-top: .5rem;
@@ -26,7 +26,7 @@
     border-radius: 6%;
     font-size: 9px;
     font-weight: bold;
-    color: #fff;
+    color: black;
 }
 
 .modDate {
@@ -41,7 +41,7 @@
 }
 
 .modal .modal-content {
-    background-color: #ecddc6;
+    background-color: #e0d147;
 }
 
 @media only screen and (max-width: 600px) {

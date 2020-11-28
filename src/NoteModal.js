@@ -18,7 +18,7 @@ export default function NoteModal(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="info" onClick={handleShow}>
         View Note
       </Button>
 
@@ -33,8 +33,8 @@ export default function NoteModal(props) {
       >
         <Modal.Header closeButton>
           <div>
-            <b>{props.title} </b>
-            <p className="modDate">created on {props.date}</p>
+            <b>{props.noteTitle} </b>
+            <p className="modDate">created on {props.createdDate}</p>
             {props.editDate && (
               <p className="created-date">Last Edit: {props.editDate} </p>
             )}
@@ -42,8 +42,8 @@ export default function NoteModal(props) {
         </Modal.Header>
         <Modal.Body>
           <ModalBodyForm
-            title={props.title}
-            content={props.content}
+            noteTitle={props.noteTitle}
+            noteContent={props.noteContent}
             onEditNote={(obj) => EditNote(obj)}
             handleClose={handleClose}
           ></ModalBodyForm>

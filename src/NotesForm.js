@@ -2,30 +2,36 @@ import React, { Component } from "react";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
+import { format } from "date-fns";
+
 export default class NotesForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       noteContent: "",
       noteTitle: "",
+      createdDate: "",
+      isArchived: false
     };
+    this.date = Date.now();
+    this.createdDate = format(this.date, "MMMM do, yyyy H:mma");
   }
 
   updateTitle = (event) => {
     const value = event.target.value;
-    this.setState({ noteTitle: value });
+    this.setState({ noteTitle: value, createdDate: this.createdDate });
   };
 
   updateContent = (event) => {
     const value = event.target.value;
-    this.setState({ noteContent: value });
+    this.setState({ noteContent: value, createdDate: this.createdDate });
   };
 
-  handleSubmit =(e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onAddNote(this.state)
-    this.setState({ noteContent: "", noteTitle: '' });
-  }
+    this.props.onAddNote(this.state);
+    this.setState({ noteContent: "", noteTitle: "" });
+  };
 
   render() {
     return (
@@ -35,7 +41,7 @@ export default class NotesForm extends Component {
           name="title"
           placeholder="What is this about?"
           className="formTitle"
-          autoComplete ='off'
+          autoComplete="off"
           onChange={this.updateTitle}
           value={this.state.noteTitle}
         />
@@ -50,7 +56,7 @@ export default class NotesForm extends Component {
           value={this.state.noteContent}
           required
         />
-        <Button type="submit" className="addBtn">
+        <Button variant='info' type="submit" className="addBtn">
           {" "}
           Add Note
         </Button>

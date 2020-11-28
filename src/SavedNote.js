@@ -8,46 +8,52 @@ export default class SavedNote extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.noteTitle,
-      content: this.props.noteContent,
+      noteTitle: this.props.noteTitle,
+      noteContent: this.props.noteContent,
+      createdDate: this.props.createdDate,
+      editDate: this.props.editDate
     };
     this.keyid = props.keyid;
-    this.date = Date.now();
-    this.createdDate = format(this.date, "MMMM do, yyyy H:mma");
   }
 
   EditNote(obj) {
     let editDate = format(Date.now(), "MMMM do, yyyy H:mma");
     this.setState((state) => {
       return {
-        title: obj.noteTitle,
-        content: obj.noteContent,
-        editDate: editDate,
+        noteTitle: obj.noteTitle,
+        noteContent: obj.noteContent,
+        editDate: editDate
       };
     });
   }
 
+  componentDidUpdate() {
+       this.props.handleEdit(this.state);
+ 
+  }
+
   render() {
+    console.log(this.props)
     return (
       <li className="saved-note" keyid={this.keyid}>
         <span>
-          <b>{this.state.title} </b>
+          <b>{this.state.noteTitle} </b>
         </span>
-        <p className="note-content"> {this.state.content} </p>
-        <p className="created-date"> Created Date: {this.createdDate} </p>
+        <p className="note-content"> {this.state.noteContent} </p>
+        <p className="created-date"> Created Date: {this.props.createdDate} </p>
         {this.state.editDate && (
           <p className="created-date">Last Edit: {this.state.editDate} </p>
         )}
         <NoteModal
-          title={this.state.title}
-          content={this.state.content}
-          date={this.createdDate}
+          noteTitle={this.state.noteTitle}
+          noteContent={this.state.noteContent}
+          createdDate={this.state.createdDate}
           EditNote={(obj) => this.EditNote(obj)}
-          editDate = {this.editDate}
+          editDate={this.state.editDate}
         />
         <Button
           className="delete-btn"
-          variant="danger"
+          variant="dark"
           onClick={(e) => {
             if (window.confirm("Are you sure you want to delete your note?")) {
               this.props.handleDeleteBtn(this.keyid);

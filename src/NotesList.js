@@ -7,7 +7,13 @@ export default function NotesList(props) {
     let handleDeleteBtn = (e) => {
       const notesTemp = Object.assign([], props.notes)
       notesTemp.splice(index, 1)
-      props.deleteNote(notesTemp);
+      props.updateArray(notesTemp);
+    }
+
+    let handleEdit = (e) => {
+      const notesTemp = Object.assign([], props.notes);
+      notesTemp[index] = e
+      props.updateArray(notesTemp);
     }
 
     let key = uuidv4();
@@ -17,7 +23,10 @@ export default function NotesList(props) {
         keyid={key}
         noteTitle={object.noteTitle}
         noteContent={object.noteContent}
-        handleDeleteBtn={ (e) => handleDeleteBtn(e) }
+        createdDate={object.createdDate}
+        editDate ={object.editDate}
+        handleDeleteBtn={(e) => handleDeleteBtn(e)}
+        handleEdit={(e) => handleEdit(e)}
       />
     );
   });
